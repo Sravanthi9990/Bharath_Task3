@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Converter</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: blue;
+      color: white;
+    }
+
+    .result {
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Temperature Converter</h1>
+
+  <input type="number" id="input" placeholder="Enter temperature in Celsius">
+
+  <select id="unit">
+    <option value="celsius">Celsius</option>
+    <option value="fahrenheit">Fahrenheit</option>
+  </select>
+
+  <button type="button" onclick="convert()">Convert</button>
+
+  <div class="result" id="output"></div>
+
+  <script>
+    function convert() {
+      const input = document.getElementById("input");
+      const unit = document.getElementById("unit");
+      const output = document.getElementById("output");
+
+      const temperature = input.value;
+      const unitToConvertTo = unit.value;
+
+      if (unitToConvertTo === "celsius") {
+        output.innerHTML = temperature + " °C";
+      } else if (unitToConvertTo === "fahrenheit") {
+        const convertedTemperature = temperature * 9 / 5 + 32;
+        output.innerHTML = convertedTemperature + " °F";
+      }
+    }
+  </script>
+</body>
+</html>
